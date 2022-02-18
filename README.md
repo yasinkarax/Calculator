@@ -1,2 +1,2 @@
 # basicCalculator
-Hi, his is my first project with JavaScript.
+Hi, this is my first project with JavaScript.
