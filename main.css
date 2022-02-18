@@ -1,0 +1,118 @@
+body{
+    background: rgb(243,0,255);
+    background: linear-gradient(90deg, rgba(243,0,255,1) 0%, rgba(227,4,238,1) 2%, rgba(0,212,255,1) 100%);
+}
+
+.container{
+    width: 470px;
+    height: 700px;
+    border-radius: 15px;
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+    display: flex;                  
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#screen{
+    padding: 10px 20px;
+    box-sizing: border-box;
+    height: 117px;
+    width: 385px;
+    border: 1px solid yellow;
+    background-color: #96c6f3
+}
+#math{
+    font-size: 2.6vw;
+    text-align: right;
+    overflow: hidden;
+    font-weight: bold;
+}
+#result{
+    font-weight: bold;
+    margin-top: 2px;
+    font-size: 3vw;
+    text-align: right;
+    overflow: hidden;
+}
+/* the start-stop button while the calculator is off */
+.o-c{
+    width: 385px;
+    height: 30px;
+    position: relative;
+}
+#start-end{
+    /*justify-content: flex-start;*/
+    height: 30px;
+    width: 65px;
+    background: black;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    border-radius: 250px;
+    display: flex;
+    align-items: center;
+}
+#ball{
+    transition-duration: 2s;
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: red;
+    border-radius: 100%;
+}
+/*----------------------------------*/
+
+
+
+/*hesap makinesi kapalı iken button'ların css'i*/
+/* asd */
+.buttons{
+    height: 480px;
+    width: 385px;
+    display: grid !important;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(5, 80px);
+    grid-row-gap: 20px;
+    
+}
+.buttons button{
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 40px;
+    /*/color: #41484c;*/
+}
+.number{
+    color: #41484c;
+    background-color: #2d3037;
+}
+.zero{
+    grid-column: span 2;
+}
+.dot{
+    color: #41484c;
+}
+.equal{
+    grid-row: span 2;
+    color: #b2d8fd;
+}
+
+.del{
+    color: #41484c;
+    background-color: #2d3037;
+    font-size: 35px !important;
+}
+.clear{
+    color: #41484c;
+    background-color: #2d3037;
+}
+.math-symbol{
+    color: #41484c;
+    background-color: #2d3037;
+}
