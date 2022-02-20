@@ -79,7 +79,8 @@ html {
     display: grid !important;
     grid-template-columns: repeat(4, 20%);
     grid-template-rows: repeat(5, 18%);
-    align-content: space-between;
+    gap: 0.6rem;
+    justify-content: center;
     
 }
 .buttons button{
