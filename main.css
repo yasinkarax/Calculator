@@ -1,11 +1,13 @@
 body{
-    background: rgb(243,0,255);
     background: linear-gradient(90deg, rgba(243,0,255,1) 0%, rgba(227,4,238,1) 2%, rgba(0,212,255,1) 100%);
+    height: 100%;
 }
-
+html {
+    height: 100%;
+  }
 .container{
-    width: 470px;
-    height: 700px;
+    width: 30%;
+    height: 100%;
     border-radius: 15px;
     border: 1px solid black;
     position: absolute;
@@ -20,16 +22,17 @@ body{
 #screen{
     padding: 10px 20px;
     box-sizing: border-box;
-    height: 117px;
-    width: 385px;
+    height: 100px;
+    width: 80%;
     border: 1px solid yellow;
     background-color: #96c6f3
 }
 #math{
-    font-size: 2.6vw;
+    font-size: 1.8vw;
     text-align: right;
-    overflow: hidden;
     font-weight: bold;
+    white-space:nowrap;
+    overflow:hidden;
 }
 #result{
     font-weight: bold;
@@ -40,26 +43,25 @@ body{
 }
 /* the start-stop button while the calculator is off */
 .o-c{
-    width: 385px;
+    width: 80%;
     height: 30px;
-    position: relative;
+    display: flex;
+    justify-content: flex-end;
 }
 #start-end{
-    /*justify-content: flex-start;*/
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     height: 30px;
     width: 65px;
     background: black;
     cursor: pointer;
-    position: absolute;
-    right: 0;
     border-radius: 250px;
-    display: flex;
-    align-items: center;
 }
 #ball{
-    transition-duration: 2s;
-    display: block;
-    position: absolute;
+    /* left: 0;
+    display: block; */
+    transition-duration: 0.5s;
     width: 25px;
     height: 25px;
     background: red;
@@ -72,19 +74,19 @@ body{
 /*hesap makinesi kapalı iken button'ların css'i*/
 /* asd */
 .buttons{
-    height: 480px;
-    width: 385px;
+    height: 400px;
+    width: 80%;
     display: grid !important;
-    grid-template-columns: repeat(4, 80px);
-    grid-template-rows: repeat(5, 80px);
-    grid-row-gap: 20px;
+    grid-template-columns: repeat(4, 20%);
+    grid-template-rows: repeat(5, 18%);
+    align-content: space-between;
     
 }
 .buttons button{
     border: 1px solid black;
     border-radius: 10px;
     text-align: center;
-    line-height: 80px;
+    line-height: 70px;
     font-size: 40px;
     /*/color: #41484c;*/
 }
