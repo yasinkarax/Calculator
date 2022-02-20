@@ -1,0 +1,127 @@
+@media (max-width: 1190px){
+    body{
+        height: 100%;
+    }
+    html {
+        height: 100%;
+    }
+    .container {
+        width: 36%;
+    }
+
+    #screen{
+        width: 83%;
+        height: 100px;
+    }
+    .o-c{
+        width: 83%;
+    }
+    .buttons {
+        width: 83%;
+        grid-template-rows: repeat(5, 17%);
+    }
+    .buttons button{
+        line-height: 68px;
+        font-size: 3.5vw;
+    }
+    #math {
+        font-size: 2.5vw;
+    }
+    #result {
+        font-size: 3.5vw;
+    }
+}
+
+
+@media (max-width: 1060px){
+    body{
+        height: 100%;
+    }
+    .container {
+        width: 40%;
+    }
+}
+@media (max-width: 920px){
+    body{
+        height: 100%;
+    }
+    .container {
+        width: 41%;
+    }
+
+}
+@media (max-width: 830px){
+    body{
+        height: 100%;
+    }
+    .container {
+        width: 45%;
+    }
+    #math {
+        font-size: 3.2vw;
+    }
+    #result {
+        font-size: 4.5vw;
+    }
+    .buttons button {
+        font-size: 4.5vw;
+    }
+
+}
+
+@media (max-width: 715px){
+    body{
+        height: 100%;
+    }
+    .container {
+        width: 52%;
+    }
+    #math {
+        font-size: 3.7vw;
+    }
+    #result {
+        font-size: 5.5vw;
+    }
+    .buttons button {
+        font-size: 5.5vw;
+    }
+
+}
+
+@media (max-width: 620px){
+    body{
+        height: 100%;
+    }
+    .container {
+        width: 60%;
+    }
+    #math {
+        font-size: 3.9vw;
+    }
+    #result {
+        font-size: 6.5vw;
+    }
+    .buttons button {
+        font-size: 5.9vw;
+    }
+
+}
+
+@media (max-width: 500px){
+    body{
+        height: 100%;
+    }
+    .container {
+        width: 73%;
+    }
+    #math {
+        font-size: 4.9vw;
+    }
+    #result {
+        font-size: 8.5vw;
+    }
+    .buttons button {
+        font-size: 7.9vw;
+    }
+
+}
