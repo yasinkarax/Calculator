@@ -36,9 +36,10 @@ function startCal(){
     startEnd = document.getElementById('start-end');
 
     //the ball will be right side 
-    ball.style.left = "none";
-    ball.style.right = "0";
-    ball.style.removeProperty('left');
+    // ball.style.left = "none";
+    // ball.style.right = "0";
+    // ball.style.removeProperty('left');
+    ball.style.marginLeft = "40px";
 
     // the background color of the ball is will be rgb(33 250 18)
     ball.style.backgroundColor = "#0ee71f ";
@@ -283,7 +284,9 @@ function showButtonValue(){
 
                 default:
                     math.innerHTML += button[value].innerHTML;
-
+                    if(result.innerHTML != "")
+                        math.innerHTML = "= " +button[value].innerHTML;
+                        result.innerHTML = "";
 
   
                     
@@ -292,12 +295,6 @@ function showButtonValue(){
         })
     }
 }
-/*
-eğer tıklanan butonun değeri clear del ya da + olursa ekrana yazılmayacak
-2 kere art arda 4 işlem simgeleri ekrana yazdırılamayacak
-eğer 
-*/
-
 //function to close cal
 function endCal(){
     //variables
@@ -307,9 +304,10 @@ function endCal(){
     mathSymbol = document.getElementsByClassName('math-symbol');
     ball = document.getElementById('ball');
     math = document.getElementById('math');
-    
+    startEnd = document.getElementById('start-end');
     //the ball will be left side
-    ball.style.left = "0";
+    //ball.style.left = "0";
+    ball.style.marginLeft = "0";
 
     // the background color of the ball is will be red
     ball.style.backgroundColor = "red";
@@ -320,7 +318,7 @@ function endCal(){
 
     //ending cal 
     math.innerHTML = "";
-
+    result.innerHTML = "";
     //to remove color of buttons
     let numberLen = number.length;
     for(let i = 0; i < numberLen; i++){
@@ -339,5 +337,10 @@ function endCal(){
 
 // function to calculate the result
 function calculate(){
-    result.innerHTML = eval(math.innerHTML.substring(1));
+    let x = eval(math.innerHTML.substring(1)).toFixed(2);
+    if(x % 1 == 0)
+        result.innerHTML = eval(math.innerHTML.substring(1));
+    
+    else 
+        result.innerHTML = eval(math.innerHTML.substring(1)).toFixed(2);
 }
