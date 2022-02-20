@@ -1,6 +1,7 @@
 // variables
 let screen, 
     button,
+    buttonLen,
     ball,
     clear,
     del,
@@ -96,6 +97,7 @@ function showButtonValue(){
     idEqual = document.getElementById('idEqual');
     math.innerHTML = "= ";
     button = document.getElementsByTagName('button');
+    buttonLen = button.length;
     del = document.getElementById('del');
     result = document.getElementById('result');
     add = document.getElementById('add');
@@ -104,10 +106,10 @@ function showButtonValue(){
     sub = document.getElementById('sub');
     dot = document.getElementById('dot');
     
-    for(let value in button){
-        button[value].addEventListener('click', function(){
 
-            switch(button[value].innerHTML){
+        for(let i = 0; i < buttonLen; i++){
+            button[i].addEventListener('click', function(){
+                switch(button[i].innerHTML){
                 case "C":
                     math.innerHTML = "= ";
                     result.innerHTML = "";
@@ -281,20 +283,20 @@ function showButtonValue(){
                 break;
                 
 
-
                 default:
-                    math.innerHTML += button[value].innerHTML;
+                    math.innerHTML += button[i].innerHTML;
                     if(result.innerHTML != "")
-                        math.innerHTML = "= " +button[value].innerHTML;
+                        math.innerHTML = "= " +button[i].innerHTML;
                         result.innerHTML = "";
 
   
                     
             }
+            })
+        }
 
-        })
-    }
 }
+
 //function to close cal
 function endCal(){
     //variables
