@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/main.css">
-    <link rel="stylesheet" href="assets/responsive.css">
+    <link rel="stylesheet" href="assets/sass/main.css">
+    <link rel="stylesheet" href="assets/sass/reset.css">
+    <script src="https://kit.fontawesome.com/02234e3b3c.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="assets/responsive.css"> -->
     <!--font awesome-->
     <script src="https://kit.fontawesome.com/09efd82324.js" crossorigin="anonymous"></script>
     
@@ -14,18 +16,21 @@
 <body>
     <div class="container">
         <div id="screen">
-            <div id="math"></div>
-            <div id="result"></div>
+            <div id="math">6000/2+3227*2</div>
+            <div id="result">
+                <span id="result-equal">=</span>
+                <span id="result-value">12,454</span>
+            </div>
         </div>
-        <div class="o-c">
+        <!-- <div class="o-c">
             <div id="start-end" onclick="startCal()">
                 <div id="ball" class="open"></div>
             </div>
-        </div>
+        </div> -->
         <div class="buttons">
             <button class="clear"  id="clear">C</button>
             <button class="del" id="del">
-                <i class="fas fa-eraser"></i>
+                <i class="fa-solid fa-delete-left"></i>
             </button>
             <button id="div" class="div math-symbol">/</button>
             <button id="multi" class="multi math-symbol">*</button>
