@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #DAF0FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.digitStyle, .dot, .zero, .three, .two, .one, .six, .five, .four, .nine, .eight, .seven {
+  color: #38B9FF;
+  font: normal 500 32px "Poppins";
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.digitStyle:focus, .dot:focus, .zero:focus, .three:focus, .two:focus, .one:focus, .six:focus, .five:focus, .four:focus, .nine:focus, .eight:focus, .seven:focus {
+  border: none;
+  outline: none;
+}
+.digitStyle:active, .dot:active, .zero:active, .three:active, .two:active, .one:active, .six:active, .five:active, .four:active, .nine:active, .eight:active, .seven:active {
+  border: none;
+  outline: none;
+}
+
+.operatorStyle, .equal, .add, .min, .multi, .div, .del, .clear {
+  color: #109DFF;
+  background-color: #ADE2FF;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 32px;
+}
+
+.container {
+  background: #F7F8FB;
+  backdrop-filter: blur(51px);
+  border-radius: 39px;
+  padding: 35px 34px;
+  height: 95vh;
+  max-width: 375px;
+  width: 375px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: grid !important;
+  grid-gap: 16px 20px;
+  grid-template: repeat(5, 60px)/repeat(4, 20%);
+  grid-template-areas: "clear del div multi" "seven eight nine minus" "four five six plus" "one two three equal" "zero zero dot equal";
+}
+
+.clear {
+  grid-area: clear;
+  color: #858585;
+}
+
+.del {
+  grid-area: del;
+  color: #858585;
+}
+.del i {
+  font-size: 27px !important;
+}
+
+.div {
+  grid-area: div;
+}
+
+.multi {
+  grid-area: multi;
+}
+
+.min {
+  grid-area: minus;
+}
+
+.add {
+  grid-area: plus;
+}
+
+.equal {
+  grid-area: equal;
+}
+
+.seven {
+  grid-area: seven;
+}
+
+.eight {
+  grid-area: eight;
+}
+
+.nine {
+  grid-area: nine;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.zero {
+  grid-area: zero;
+}
+
+.dot {
+  grid-area: dot;
+}
+
+#math {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  color: #818181;
+}
+
+#screen {
+  padding: 35px 0;
+  text-align: right;
+}
+
+#result {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 48px;
+  color: #424242;
+}
+
+/*# sourceMappingURL=main.css.map */
