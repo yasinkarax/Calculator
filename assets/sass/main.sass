@@ -1,0 +1,152 @@
+//variables
+@import variables
+
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap')
+
+
+*
+    box-sizing: border-box
+    padding: 0
+    margin: 0
+
+body
+    background-color: $bgColor
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100vh
+
+//mixins
+@mixin gridDigit($gridAreaName)
+    grid-area: $gridAreaName
+    @extend .digitStyle
+
+@mixin gridOperator($gridAreaName)
+    grid-area: $gridAreaName
+    @extend .operatorStyle
+    
+
+@mixin font($family, $style, $weight, $size, $color)
+    font-family: $font-family
+    font-weight: $weight
+    font-style: $style
+    font-size: $size
+    color: $color
+        
+/////////////////////////////////////////////////
+
+//the codes that will use more than many times 
+.digitStyle
+    color: $digitColor
+    font: $digitFont
+    background-color: $digitBgColor
+    border-radius: $digitRadius
+    border: none
+    outline: none
+    cursor: pointer
+    &:focus
+        border: none
+        outline: none
+    &:active
+        border: none
+        outline: none
+        
+.operatorStyle  
+    color: $operatorColor
+    background-color: $operatorBgColor
+    border-radius: $digitRadius
+    border: none
+    outline: none
+    cursor: pointer
+    font-size: 32px
+
+/////////////////////////////////////////////////
+
+
+.container
+    background: $calBgColor 
+    backdrop-filter: blur(51px) 
+    border-radius: 39px 
+    padding: 35px 34px
+    height: 95vh
+    max-width: 375px
+    width: 375px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+//buttons
+.buttons
+    display: grid !important
+    grid-gap: 16px 20px
+    grid-template:  repeat(5, 60px) / repeat(4, 20%)
+    grid-template-areas: 'clear del div multi' 'seven eight nine minus' 'four five six plus' 'one two three equal' 'zero zero dot equal'
+
+.clear
+    @include gridOperator(clear)
+    color: #858585
+    
+
+.del 
+    @include gridOperator(del)
+    color: #858585
+    
+    i
+        font-size: 27px !important
+    
+
+.div 
+    @include gridOperator(div)
+    
+.multi 
+    @include gridOperator(multi)
+    
+
+.min 
+    @include gridOperator(minus)
+    
+
+.add 
+    @include gridOperator(plus)
+    
+
+.equal  
+    @include gridOperator(equal)
+
+.seven 
+    @include gridDigit(seven)
+
+.eight
+    @include gridDigit(eight)
+
+.nine
+    @include gridDigit(nine)
+.four   
+    @include gridDigit(four)
+.five
+    @include gridDigit(five)
+.six
+    @include gridDigit(six)
+.one    
+    @include gridDigit(one)
+.two   
+    @include gridDigit(two)
+.three
+    @include gridDigit(three)
+.zero   
+    @include gridDigit(zero)
+
+.dot 
+    @include gridDigit(dot)
+    
+
+#math
+    @include font($font-family, normal, 400, 24px, $math-color)
+
+#screen 
+    padding: 35px 0
+    text-align: right
+
+#result
+    @include font($font-family, normal, 500, $result-size, $result-color)    
