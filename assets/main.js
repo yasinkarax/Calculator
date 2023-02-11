@@ -80,11 +80,3 @@ function calculate(){
     else
         return result.toFixed(2);
 }
-
-    // console.log(buttons[2].innerHTML)
-/*
-// function to calculate the result
-
-*/
-// calculate();
-// console.log(typeof value)
