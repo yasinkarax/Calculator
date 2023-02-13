@@ -25,62 +25,70 @@ function calculator(){
     for(let i = 0; i < buttonsL; i++){
         buttons[i].addEventListener('click', function (){
             //if type a operator while screen is empty, it will show an message
-            if (math.innerHTML == empty && operators.includes(buttons[i].innerHTML))
+            if (math.innerHTML == empty && operators.includes(buttonInner(i)))
                 math.innerHTML += err1;
 
             //if last character is an operator and you type an operator, it will show nothing
-            else if (operators.includes(math.innerHTML[math.innerHTML.length - 1])  && operators.includes(buttons[i].innerHTML))
+            else if (operators.includes(math.innerHTML[math.innerHTML.length - 1])  && operators.includes(buttonInner(i)))
                 math.innerHTML = math.innerHTML;
 
             //C button, clear the screen
-            else if (buttons[i].innerHTML == clear.innerHTML){
+            else if (buttonInner(i) == clear.innerHTML){
                 math.innerHTML = empty;
                 value.innerHTML = empty;
             }
 
             // = button, calculate the result
 
-            else if (buttons[i].innerHTML == equal.innerHTML)
+            else if (buttonInner(i) == equal.innerHTML)
                     value.innerHTML = calculate();
 
             // delete button, delete the last character of the screen one by one
-            else if (buttons[i].innerHTML == del.innerHTML){
+            else if (buttonInner(i) == del.innerHTML){
                 math.innerHTML = math.innerHTML.slice(0, (math.innerHTML.length - 1));
                 value.innerHTML = empty;
             }
                 
             //if type the operator while the screen is showing the error message, it will show nothinh
-            else if(math.innerHTML == err1 && operators.includes(buttons[i].innerHTML))
+            else if(math.innerHTML == err1 && operators.includes(buttonInner(i)))
                     math.innerHTML =  err1;
             
-            else if(math.innerHTML == err1 && operators.includes(buttons[i].innerHTML) == false)
-                math.innerHTML = buttons[i].innerHTML
+            else if(math.innerHTML == err1 && operators.includes(buttonInner(i)) == false)
+                math.innerHTML = buttonInner(i)
 
             else{
                 if(value.innerHTML != empty){
-                    if(operators.includes(buttons[i].innerHTML)){
-                        math.innerHTML = value.innerHTML + buttons[i].innerHTML; 
+                    if(operators.includes(buttonInner(i))){
+                        math.innerHTML = value.innerHTML + buttonInner(i); 
                         value.innerHTML = empty;
                     }
                     else{
-                        math.innerHTML = buttons[i].innerHTML;
+                        math.innerHTML = buttonInner(i);
                         value.innerHTML = empty;
                     }
                         
                     
                 }
                 else
-                    math.innerHTML += buttons[i].innerHTML;
+                    math.innerHTML += buttonInner(i);
             }
             
         })
     }
 }
 
+//calculate the result
 function calculate(){
     let result = Function("return " + math.innerHTML)();
     if(Number.isInteger(result))
         return result;
     else
         return result.toFixed(2);
+}
+
+// returns the buttons's innerHTML
+function buttonInner(i){
+    let x = i;
+    let buttonInner = buttons[x].innerHTML;
+    return buttonInner;
 }
