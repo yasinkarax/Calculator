@@ -8,7 +8,8 @@ del = document.querySelector('#del'),
 equal = document.querySelector('#equal'),
 buttonsL = buttons.length;
 
-const operators = '+-*/.', 
+const 
+operators = '+-*/.', 
 err1 = "önce sayı girmelisiniz", 
 empty = '';
 
@@ -19,6 +20,18 @@ function readyCal(){
     math.innerHTML = empty;
     value.innerHTML = empty;
 }
+
+//calculate the result
+function calculate(){
+    let result = Function("return " + math.innerHTML)();
+    if(Number.isInteger(result))
+        return result;
+    else
+        return result.toFixed(2);
+}
+
+// returns the buttons's innerHTML
+let buttonInner = i => buttons[i].innerHTML;
 
 
 function calculator(){
@@ -69,24 +82,10 @@ function calculator(){
                         
                     
                 }
-                else
-                    math.innerHTML += buttonInner(i);
+            else
+                math.innerHTML += buttonInner(i);
             }
             
         })
     }
 }
-
-//calculate the result
-function calculate(){
-    let result = Function("return " + math.innerHTML)();
-    if(Number.isInteger(result))
-        return result;
-    else
-        return result.toFixed(2);
-}
-
-
-
-// returns the buttons's innerHTML
-let buttonInner = i => buttons[i].innerHTML;
