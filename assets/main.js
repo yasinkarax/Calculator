@@ -48,10 +48,12 @@ function calculator(){
             }
                 
             //if type the operator while the screen is showing the error message, it will show nothinh
-            else if(math.innerHTML == err1 && operators.includes(buttons[i].innerHTML)){
-                math.innerHTML =  err1;
-            }
+            else if(math.innerHTML == err1 && operators.includes(buttons[i].innerHTML))
+                    math.innerHTML =  err1;
             
+            else if(math.innerHTML == err1 && operators.includes(buttons[i].innerHTML) == false)
+                math.innerHTML = buttons[i].innerHTML
+
             else{
                 if(value.innerHTML != ''){
                     if(operators.includes(buttons[i].innerHTML)){
