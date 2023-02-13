@@ -33,10 +33,8 @@ function calculator(){
                 math.innerHTML = math.innerHTML;
 
             //C button, clear the screen
-            else if (buttonInner(i) == clear.innerHTML){
-                math.innerHTML = empty;
-                value.innerHTML = empty;
-            }
+            else if (buttonInner(i) == clear.innerHTML)
+                readyCal();
 
             // = button, calculate the result
 
