@@ -86,9 +86,7 @@ function calculate(){
         return result.toFixed(2);
 }
 
+
+
 // returns the buttons's innerHTML
-function buttonInner(i){
-    let x = i;
-    let buttonInner = buttons[x].innerHTML;
-    return buttonInner;
-}
+let buttonInner = i => buttons[i].innerHTML;
