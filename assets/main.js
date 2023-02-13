@@ -8,14 +8,16 @@ del = document.querySelector('#del'),
 equal = document.querySelector('#equal'),
 buttonsL = buttons.length;
 
-const operators = '+-*/.', err1 = "önce sayı girmelisiniz";
+const operators = '+-*/.', 
+err1 = "önce sayı girmelisiniz", 
+empty = '';
 
 document.onload = readyCal();
 document.onload = calculator();
 
 function readyCal(){
-    math.innerHTML = '';
-    value.innerHTML = '';
+    math.innerHTML = empty;
+    value.innerHTML = empty;
 }
 
 
@@ -23,7 +25,7 @@ function calculator(){
     for(let i = 0; i < buttonsL; i++){
         buttons[i].addEventListener('click', function (){
             //if type a operator while screen is empty, it will show an message
-            if (math.innerHTML == '' && operators.includes(buttons[i].innerHTML))
+            if (math.innerHTML == empty && operators.includes(buttons[i].innerHTML))
                 math.innerHTML += err1;
 
             //if last character is an operator and you type an operator, it will show nothing
@@ -32,8 +34,8 @@ function calculator(){
 
             //C button, clear the screen
             else if (buttons[i].innerHTML == clear.innerHTML){
-                math.innerHTML = '';
-                value.innerHTML = '';
+                math.innerHTML = empty;
+                value.innerHTML = empty;
             }
 
             // = button, calculate the result
@@ -44,7 +46,7 @@ function calculator(){
             // delete button, delete the last character of the screen one by one
             else if (buttons[i].innerHTML == del.innerHTML){
                 math.innerHTML = math.innerHTML.slice(0, (math.innerHTML.length - 1));
-                value.innerHTML = '';
+                value.innerHTML = empty;
             }
                 
             //if type the operator while the screen is showing the error message, it will show nothinh
@@ -55,14 +57,14 @@ function calculator(){
                 math.innerHTML = buttons[i].innerHTML
 
             else{
-                if(value.innerHTML != ''){
+                if(value.innerHTML != empty){
                     if(operators.includes(buttons[i].innerHTML)){
                         math.innerHTML = value.innerHTML + buttons[i].innerHTML; 
-                        value.innerHTML = '';
+                        value.innerHTML = empty;
                     }
                     else{
                         math.innerHTML = buttons[i].innerHTML;
-                        value.innerHTML = '';
+                        value.innerHTML = empty;
                     }
                         
                     
