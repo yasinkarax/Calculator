@@ -13,7 +13,6 @@ operators = '+-*/.',
 err1 = "önce sayı girmelisiniz", 
 empty = '';
 
-document.onload = readyCal();
 document.onload = calculator();
 
 function readyCal(){
@@ -35,6 +34,7 @@ let buttonInner = i => buttons[i].innerHTML;
 
 
 function calculator(){
+    readyCal();
     for(let i = 0; i < buttonsL; i++){
         buttons[i].addEventListener('click', function (){
             //if type a operator while screen is empty, it will show an message
