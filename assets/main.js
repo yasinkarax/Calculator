@@ -37,30 +37,24 @@ function calculator(){
     readyCal();
     for(let i = 0; i < buttonsL; i++){
         buttons[i].addEventListener('click', function (){
-            //if type a operator while screen is empty, it will show an message
             if (math.innerHTML == empty && operators.includes(buttonInner(i)))
                 math.innerHTML += err1;
 
-            //if last character is an operator and you type an operator, it will show nothing
             else if (operators.includes(math.innerHTML[math.innerHTML.length - 1])  && operators.includes(buttonInner(i)))
                 math.innerHTML = math.innerHTML;
 
-            //C button, clear the screen
             else if (buttonInner(i) == clear.innerHTML)
                 readyCal();
 
-            // = button, calculate the result
 
             else if (buttonInner(i) == equal.innerHTML)
                     value.innerHTML = calculate();
 
-            // delete button, delete the last character of the screen one by one
             else if (buttonInner(i) == del.innerHTML){
                 math.innerHTML = math.innerHTML.slice(0, (math.innerHTML.length - 1));
                 value.innerHTML = empty;
             }
                 
-            //if type the operator while the screen is showing the error message, it will show nothinh
             else if(math.innerHTML == err1 && operators.includes(buttonInner(i)))
                     math.innerHTML =  err1;
             
@@ -77,9 +71,7 @@ function calculator(){
                         math.innerHTML = buttonInner(i);
                         value.innerHTML = empty;
                     }
-                        
-                    
-                }
+            }
             else
                 math.innerHTML += buttonInner(i);
             }
