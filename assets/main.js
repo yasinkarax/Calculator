@@ -19,16 +19,11 @@ document.onload = calculator();
 function readyCal(){
     math.innerHTML = empty;
     value.innerHTML = empty;
-    digitCount = 0;
 }
 
 //calculate the result
 function calculate(){
-        return Intl.NumberFormat('tr-TR',
-        {
-            maximumFractionDigits: 2
-        }
-        ).format(Function("return " + math.innerHTML)())
+        return Intl.NumberFormat('tr-TR').format(Function("return " + math.innerHTML)())
 }
 
 // returns the buttons's value
@@ -63,7 +58,7 @@ function calculator(){
 
             else if(value.innerHTML != empty){
                     if(operators.includes(buttonInner(i))){
-                        math.innerHTML = value.innerHTML + buttonInner(i); 
+                        math.innerHTML = value.innerHTML.replaceAll('.', '') + buttonInner(i); 
                         value.innerHTML = empty;
                     }
                     else{
