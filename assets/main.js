@@ -8,6 +8,7 @@ del = document.querySelector('#del'),
 equal = document.querySelector('#equal'),
 buttonsL = buttons.length;
 
+
 const 
 operators = '+-*/.', 
 err1 = "önce sayı girmelisiniz", 
@@ -18,18 +19,19 @@ document.onload = calculator();
 function readyCal(){
     math.innerHTML = empty;
     value.innerHTML = empty;
+    digitCount = 0;
 }
 
 //calculate the result
 function calculate(){
-    let result = Function("return " + math.innerHTML)();
-    if(Number.isInteger(result))
-        return result;
-    else
-        return result.toFixed(2);
+        return Intl.NumberFormat('tr-TR',
+        {
+            maximumFractionDigits: 2
+        }
+        ).format(Function("return " + math.innerHTML)())
 }
 
-// returns the buttons's innerHTML
+// returns the buttons's value
 let buttonInner = i => buttons[i].innerHTML;
 
 
@@ -48,12 +50,10 @@ function calculator(){
 
 
             else if (buttonInner(i) == equal.innerHTML)
-                    value.innerHTML = calculate();
+                value.innerHTML = calculate();
 
-            else if (buttonInner(i) == del.innerHTML){
-                math.innerHTML = math.innerHTML.slice(0, (math.innerHTML.length - 1));
+            else if (buttonInner(i) == del.innerHTML)
                 value.innerHTML = empty;
-            }
                 
             else if(math.innerHTML == err1 && operators.includes(buttonInner(i)))
                     math.innerHTML =  err1;
@@ -61,8 +61,7 @@ function calculator(){
             else if(math.innerHTML == err1 && operators.includes(buttonInner(i)) == false)
                 math.innerHTML = buttonInner(i)
 
-            else{
-                if(value.innerHTML != empty){
+            else if(value.innerHTML != empty){
                     if(operators.includes(buttonInner(i))){
                         math.innerHTML = value.innerHTML + buttonInner(i); 
                         value.innerHTML = empty;
@@ -72,10 +71,11 @@ function calculator(){
                         value.innerHTML = empty;
                     }
             }
-            else
-                math.innerHTML += buttonInner(i);
+            else{
+                math.innerHTML += buttonInner(i)
+                
             }
-            
+                
         })
     }
 }
