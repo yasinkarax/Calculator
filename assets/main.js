@@ -31,7 +31,7 @@ function calculator() {
         math.innerHTML += err;
       } else if (operators.includes(math.innerHTML[math.innerHTML.length - 1])
           && operators.includes(buttonInner(i))) {
-        math.innerHTML = math.innerHTML;
+        math.innerHTML += '';
       } else if (buttonInner(i) === clearIn) {
         readyCal();
       } else if (buttonInner(i) === equalIn) {
