@@ -28,13 +28,12 @@ body
     
 
 @mixin font($family, $style, $weight, $size, $color)
-    fontFamily: $fontFamily
+    font-family: $fontFamily
     font-weight: $weight
     font-style: $style
     font-size: $size
     color: $color
         
-/////////////////////////////////////////////////
 
 //the codes that will use more than many times 
 .digitStyle
@@ -61,7 +60,6 @@ body
     cursor: pointer
     font-size: 32px
 
-/////////////////////////////////////////////////
 
 
 .container
@@ -76,70 +74,26 @@ body
     flex-direction: column
     justify-content: space-between
 
+
+
 //buttons
 .buttons
     display: grid !important
     grid-gap: 16px 20px
     grid-template:  repeat(5, 60px) / repeat(4, 20%)
-    grid-template-areas: 'clear del div multi' 'seven eight nine minus' 'four five six plus' 'one two three equal' 'zero zero dot equal'
+    grid-template-areas: 'clear del div multi' 'seven eight nine min' 'four five six add' 'one two three equal' 'zero zero dot equal'
 
-.clear
-    @include gridOperator(clear)
-    color: $eraserColor
-    
 
-.del 
-    @include gridOperator(del)
-    color: $eraserColor
-    
-    i
-        font-size: 27px !important
-    
+$buttonsDigit:  one two three four five six seven eight nine zero dot
+$buttonsOperator: clear del div multi min add equal
 
-.div 
-    @include gridOperator(div)
-    
-.multi 
-    @include gridOperator(multi)
-    
+@each $button in $buttonsDigit
+  .#{$button}
+      @include gridDigit($button)
 
-.min 
-    @include gridOperator(minus)
-    
-
-.add 
-    @include gridOperator(plus)
-    
-
-.equal  
-    @include gridOperator(equal)
-
-.seven 
-    @include gridDigit(seven)
-
-.eight
-    @include gridDigit(eight)
-
-.nine
-    @include gridDigit(nine)
-.four   
-    @include gridDigit(four)
-.five
-    @include gridDigit(five)
-.six
-    @include gridDigit(six)
-.one    
-    @include gridDigit(one)
-.two   
-    @include gridDigit(two)
-.three
-    @include gridDigit(three)
-.zero   
-    @include gridDigit(zero)
-
-.dot 
-    @include gridDigit(dot)
-    
+@each $button in $buttonsOperator
+    .#{$button}
+        @include gridOperator($button)
 
 #math
     @include font($fontFamily, normal, 400, 24px, $mathColor)
