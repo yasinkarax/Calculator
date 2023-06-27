@@ -139,7 +139,7 @@ body {
 }
 
 #math {
-  font-family: "Poppins", sans-serif;
+  fontFamily: "Poppins", sansserif;
   font-weight: 400;
   font-style: normal;
   font-size: 24px;
@@ -153,7 +153,7 @@ body {
 }
 
 #result {
-  font-family: "Poppins", sans-serif;
+  fontFamily: "Poppins", sansserif;
   font-weight: 500;
   font-style: normal;
   font-size: 48px;

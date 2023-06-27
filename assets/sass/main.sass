@@ -28,7 +28,7 @@ body
     
 
 @mixin font($family, $style, $weight, $size, $color)
-    font-family: $font-family
+    fontFamily: $fontFamily
     font-weight: $weight
     font-style: $style
     font-size: $size
@@ -85,12 +85,12 @@ body
 
 .clear
     @include gridOperator(clear)
-    color: #858585
+    color: $eraserColor
     
 
 .del 
     @include gridOperator(del)
-    color: #858585
+    color: $eraserColor
     
     i
         font-size: 27px !important
@@ -142,7 +142,7 @@ body
     
 
 #math
-    @include font($font-family, normal, 400, 24px, $math-color)
+    @include font($fontFamily, normal, 400, 24px, $mathColor)
 
 #screen 
     padding: 35px 0
@@ -150,4 +150,4 @@ body
     overflow: hidden
 
 #result
-    @include font($font-family, normal, 500, $result-size, $result-color)    
+    @include font($fontFamily, normal, 500, $resultSize, $resultColor)    
