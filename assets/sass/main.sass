@@ -1,5 +1,5 @@
 //variables
-@import variables
+@use 'variables.sass' as v
 
 //fonts
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap')
@@ -11,7 +11,7 @@
     margin: 0
 
 body
-    background-color: $bgColor
+    background-color: v.$bgColor
     display: flex
     justify-content: center
     align-items: center
@@ -28,7 +28,7 @@ body
     
 
 @mixin font($family, $style, $weight, $size, $color)
-    font-family: $fontFamily
+    font-family: v.$fontFamily
     font-weight: $weight
     font-style: $style
     font-size: $size
@@ -37,10 +37,10 @@ body
 
 //the codes that will use more than many times 
 .digitStyle
-    color: $digitColor
-    font: $digitFont
-    background-color: $digitBgColor
-    border-radius: $digitRadius
+    color: v.$digitColor
+    font: v.$digitFont
+    background-color: v.$digitBgColor
+    border-radius: v.$digitRadius
     border: none
     outline: none
     cursor: pointer
@@ -52,9 +52,9 @@ body
         outline: none
         
 .operatorStyle  
-    color: $operatorColor
-    background-color: $operatorBgColor
-    border-radius: $digitRadius
+    color: v.$operatorColor
+    background-color: v.$operatorBgColor
+    border-radius: v.$digitRadius
     border: none
     outline: none
     cursor: pointer
@@ -63,7 +63,7 @@ body
 
 
 .container
-    background: $calBgColor 
+    background: v.$calBgColor 
     backdrop-filter: blur(51px) 
     border-radius: 39px 
     padding: 35px 34px
@@ -95,8 +95,11 @@ $buttonsOperator: clear del div multi min add equal
     .#{$button}
         @include gridOperator($button)
 
+.clear, .del 
+    color: v.$eraserColor
+
 #math
-    @include font($fontFamily, normal, 400, 24px, $mathColor)
+    @include font(v.$fontFamily, normal, 400, 24px, v.$mathColor)
 
 #screen 
     padding: 35px 0
@@ -104,4 +107,4 @@ $buttonsOperator: clear del div multi min add equal
     overflow: hidden
 
 #result
-    @include font($fontFamily, normal, 500, $resultSize, $resultColor)    
+    @include font(v.$fontFamily, normal, 500, v.$resultSize, v.$resultColor)    

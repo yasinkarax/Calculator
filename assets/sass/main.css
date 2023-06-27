@@ -133,6 +133,10 @@ body {
   grid-area: equal;
 }
 
+.clear, .del {
+  color: #858585;
+}
+
 #math {
   font-family: "Poppins", sansserif;
   font-weight: 400;
