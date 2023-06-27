@@ -9,7 +9,7 @@ const buttonsL = buttons.length;
 const operators = '+-*/.';
 const err = 'önce sayı girmelisiniz';
 const empty = '';
-const numpad = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*', ',', '.'];
+const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*', ',', '.'];
 
 function readyCal() {
   math.innerHTML = empty;
@@ -24,6 +24,15 @@ function calculate() {
 // returns the buttons's value
 const buttonInner = (i) => buttons[i].innerHTML;
 
+document.addEventListener('keydown', (e) => {
+  if (digits.includes(e.key)) {
+    math.innerHTML += e.key;
+  } else if (e.key === 'Enter') {
+    value.innerHTML = calculate();
+  } else {
+    math.innerHTML += '';
+  }
+});
 
 function calculator() {
   readyCal();
