@@ -7,7 +7,7 @@ const clearIn = document.querySelector('#clear').innerHTML;
 const delIn = document.querySelector('#del').innerHTML;
 const equalIn = document.querySelector('#equal').innerHTML;
 const buttonsL = buttons.length;
-const operators = '+-*/.';
+const operators = ['+', '-', '*', '/', '.'];
 const digits = '0123456789';
 const err = 'Bir sayı girmelisiniz';
 const empty = '';
@@ -29,7 +29,7 @@ const buttonInner = (i) => buttons[i].innerHTML;
 document.addEventListener('keydown', (e) => {
   const k = e.key;
   if (operators.includes(k)) {
-    if (math.innerHTML === empty) {
+    if (math.innerHTML === empty && k !== '-') {
       math.innerHTML = err;
     } else if (operators.includes(math.innerHTML[math.innerHTML.length - 1])) {
       math.innerHTML += empty;
@@ -46,7 +46,18 @@ document.addEventListener('keydown', (e) => {
       math.innerHTML += k;
     }
   } else if (k === 'Enter') {
-    result.innerHTML = calculate();
+    /*
+    eğer başta - varsa ve geri kalanda operatör yoksa hesaplama
+     */
+    if (math.innerHTML[0] === '-') {
+      if (math.innerHTML.length === 1) {
+        math.innerHTML += empty;
+      } else if (operators.some((ope) => math.innerHTML.substring(1, math.innerHTML.length - 1).includes(ope))) {
+        result.innerHTML = calculate();
+      }
+    } else {
+      result.innerHTML = calculate();
+    }
   } else if (k === 'Backspace') {
     if (result.innerHTML !== empty) {
       result.innerHTML = empty;
