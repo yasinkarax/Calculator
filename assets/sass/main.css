@@ -46,7 +46,7 @@ body {
   backdrop-filter: blur(51px);
   border-radius: 39px;
   padding: 35px 34px;
-  max-height: 615px;
+  height: 686px;
   max-width: 375px;
   width: 375px;
   display: flex;
