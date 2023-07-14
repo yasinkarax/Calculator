@@ -37,7 +37,12 @@ for (let i = 0; i <= buttonsL; i += 1) {
         math.textContent += buttonV;
       }
     } else {
-      math.textContent += buttonV;
+      const mathL = mathV.length;
+      if (mathL < 19) {
+        math.textContent += buttonV;
+      } else {
+        math.textContent += '';
+      }
     }
     e.preventDefault();
   };
