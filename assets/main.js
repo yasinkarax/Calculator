@@ -4,7 +4,7 @@ const operators = ['+', '-', 'x', '÷', '.'];
 
 // listen all buttons
 for (let i = 0; i <= buttonsL; i += 1) {
-  buttons[i].onclick = function (e) {
+  buttons[i].onclick = function cal(e) {
     const result = document.querySelector('#result');
     const resultV = document.querySelector('#result').textContent;
     const math = document.querySelector('#math');
