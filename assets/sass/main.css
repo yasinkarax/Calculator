@@ -155,7 +155,7 @@ body {
   font-family: "Poppins", sansserif;
   font-weight: 500;
   font-style: normal;
-  white-space: pre-line;
+  white-space: nowrap;
   overflow-x: auto;
   font-size: 48px;
   color: #424242;
