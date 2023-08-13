@@ -3,6 +3,30 @@ const buttonsL = buttons.length;
 const operators = ['+', '-', 'x', '÷', '.'];
 const result = document.querySelector('#result');
 const math = document.querySelector('#math');
+
+function clearMath() {
+  math.textContent = '';
+}
+
+function clearResult() {
+  result.textContent = '';
+}
+
+function addButtonMath(value) {
+  const kValue = value;
+  math.textContent += kValue;
+}
+
+function addButtonResult(value) {
+  const kValue = value;
+  result.textContent += kValue;
+}
+
+function performO(value) {
+  const op = value;
+  result.textContent = '= ' + eval(op);
+}
+
 // listen all buttons
 for (let i = 0; i <= buttonsL - 1; i += 1) {
   buttons[i].onclick = function cal(e) {
@@ -10,37 +34,37 @@ for (let i = 0; i <= buttonsL - 1; i += 1) {
     const buttonV = this.textContent;
     let mathV = document.querySelector('#math').textContent;
     const del = this.id;
+
     if (buttonV === 'C') {
-      math.textContent = '';
-      result.textContent = '';
-      console.log(mathV);
+      clearMath();
+      clearResult();
     } else if (del === 'del') {
       if (resultV === '') {
         math.textContent = mathV.slice(0, resultV.length - 1);
       } else {
-        result.textContent = '';
+        clearResult();
       }
     } else if (buttonV === '=') {
       mathV = mathV.replace(/x/g, '*').replace(/÷/, '/');
-      result.textContent = '= ' + eval(mathV);
+      performO(mathV);
     } else if (operators.includes(buttonV)) {
       const lastCharMath = mathV[mathV.length - 1];
       if (resultV !== '') {
         math.textContent = result.textContent.slice(2) + buttonV;
-        result.textContent = '';
+        clearResult();
       } else if (mathV !== '' && (operators.includes(lastCharMath) === false)) {
-        math.textContent += buttonV;
+        addButtonMath(buttonV);
       } else if (mathV === '' && buttonV === '-') {
-        math.textContent += buttonV;
+        addButtonMath(buttonV);
       } else if (lastCharMath === '.' && operators.includes(mathV)) {
-        math.textContent += buttonV;
+        addButtonMath(buttonV);
       }
     } else {
       const mathL = mathV.length;
       if (mathL < 19) {
-        math.textContent += buttonV;
+        addButtonMath(buttonV);
       } else {
-        math.textContent += '';
+        addButtonMath('');
       }
     }
     e.preventDefault();
@@ -57,40 +81,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const isKey = () => /[0-9+\-x÷.]/.test(kValue);
     const isDigit = () => /[0-9]/.test(kValue);
     const isOp = () => /[+\-÷x.]/.test(kValue);
-    console.log(kValue);
     if (isKey()) {
       if (math.textContent === '' && isOp() === true) {
-        math.textContent += '';
+        addButtonMath('');
       } else if (isOp()) {
         if (/[+\-÷x.]/.test(lastCharMath)) {
-          math.textContent += '';
+          addButtonMath('');
         } else if (resultV !== '') {
           if (/./.test(resultV) && kValue === '.') {
-            result.textContent += '';
+            addButtonResult('');
           } else {
             math.textContent = result.textContent.slice(2) + kValue;
-            result.textContent = '';
+            clearResult();
           }
         } else {
-          math.textContent += kValue;
+          addButtonMath(kValue);
         }
       } else if (isDigit() && resultV !== '') {
         math.textContent = kValue;
-        result.textContent = '';
+        clearResult();
       } else {
-        math.textContent += kValue;
+        addButtonMath(kValue);
       }
     } else if (kValue === 'Backspace') {
       if (resultV !== '') {
-        result.textContent = '';
+        clearResult();
       } else {
         math.textContent = mathV.slice(0, resultV.length - 1);
       }
     } else if (kValue === 'Enter') {
       if (/[+\-/*.]/.test(mathV)) {
-        result.textContent = '= ' + eval(mathV);
+        performO(mathV);
       } else {
-        math.textContent += '';
+        addButtonMath('');
       }
     }
   });
