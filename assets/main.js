@@ -78,14 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultV = document.querySelector('#result').textContent;
     const mathV = document.querySelector('#math').textContent.replace(/[÷]/g, '/').replace(/[x]/g, '*');
     const lastCharMath = math.textContent[math.textContent.length - 1];
-    const isKey = () => /[0-9+\-x÷.]/.test(kValue);
-    const isDigit = () => /[0-9]/.test(kValue);
-    const isOp = () => /[+\-÷x.]/.test(kValue);
-    if (isKey()) {
-      if (math.textContent === '' && isOp() === true) {
+    const isKey = (testV) => /[0-9+\-x÷.]/.test(testV);
+    const isDigit = (testV) => /[0-9]/.test(testV);
+    const isOp = (testV) => /[+\-÷x.]/.test(testV);
+    if (isKey(kValue)) {
+      if (math.textContent === '' && isOp(kValue)) {
         addButtonMath('');
-      } else if (isOp()) {
-        if (/[+\-÷x.]/.test(lastCharMath)) {
+      } else if (isOp(kValue)) {
+        if (isOp(lastCharMath)) {
           addButtonMath('');
         } else if (resultV !== '') {
           if (/./.test(resultV) && kValue === '.') {
