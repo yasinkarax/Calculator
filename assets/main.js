@@ -34,6 +34,8 @@ for (let i = 0; i <= buttonsL - 1; i += 1) {
     const buttonV = this.textContent;
     let mathV = document.querySelector('#math').textContent;
     const del = this.id;
+    const button = buttons[i];
+    button.blur();
 
     if (buttonV === 'C') {
       clearMath();
