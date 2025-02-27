@@ -22,9 +22,11 @@ function addButtonResult(value) {
   result.textContent += kValue;
 }
 
-function performO(value) {
+function perform(value) {
   const op = value;
   result.textContent = '= ' + eval(op);
+  const formattedResult = 
+     (Math.abs(cal) > 1e10 || Math.abs(cal) < 1e-5) ? cal.toExponential(5) : cal;
 }
 
 // listen all buttons
@@ -48,7 +50,7 @@ for (let i = 0; i <= buttonsL - 1; i += 1) {
       }
     } else if (buttonV === '=') {
       mathV = mathV.replace(/x/g, '*').replace(/÷/, '/');
-      performO(mathV);
+      perform(mathV);
     } else if (operators.includes(buttonV)) {
       const lastCharMath = mathV[mathV.length - 1];
       if (resultV !== '') {
@@ -113,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } else if (kValue === 'Enter') {
       if (/[+\-/*.]/.test(mathV)) {
-        performO(mathV);
+        perform(mathV);
       } else {
         addButtonMath('');
       }
